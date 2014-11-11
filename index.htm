@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>时政微讯-行测天天练</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="这是一个让你涨姿势的公务员自媒体，我们专注于公务员成长知识分享，主要包括时政热点、公考知识、遴选知识、机关工作心得、业务能力培养等。">
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+
+<nav id="wq-index-toolbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">    	
+    	<div class="navbar-header">
+      		<div class="navbar-brand">
+          		<span class="title">
+          			时政微讯
+          		</span>
+  				<span class="label label-success">行测天天练</span>
+      		</div>
+    	</div>
+  	</div>  	
+</nav>
+
+<section id="wq-body">
+	<div id="wq-index-banner" class="hidden-xs">
+		<h1>每天，进步，一点点</h1>
+		<h3><i>不积跬步，无以至千里；不积小流，无以成江海。</i></h3>
+	</div>
+	<div class="visible-xs-block" style="height:30px;"></div>
+	<div class="container-fluid">
+	    <div id="wq-index-main" class="row">
+	        <div class="col-xs-12 col-sm-6 col-sm-offset-3">	        	
+	        	<div class="text-center">					
+				    <div id="quiz-searchBar" class="input-group">
+				      <input type="text" id="quiz-searchTxt" class="form-control" placeholder="请输入日期...">
+				      <span class="input-group-btn">
+				        <button id="quiz-searchBtn" class="btn btn-default" type="button">搜索</button>
+				      </span>
+				    </div>
+
+					<div class="searchBoxTip alert alert-warning alert-dismissible" role="alert">
+					  <button type="button" class="close" data-dismiss="alert">
+					  <span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+					  查询参数至少2位，例：<kbd>20141101</kbd>
+					</div>
+
+					<div id="waiting" class="searchBoxTip alert alert-warning alert-dismissible" role="alert">
+						列表正在加载中，请稍候……
+					</div>
+
+					<div id="quizResult"></div>
+
+	        	</div>
+			</div>
+		</div>
+	</div>
+	<div class="push"></div>
+</section>
+
+<div id="wq-copyright" class="container-fluid">
+ 	<p class="text-center"> &copy; 2014 <kbd>时政微讯(sz-tips)</kbd> 版权所有</p>  
+ 	<p class="text-center">联系方式（QQ）：501605517 </p>  
+</div>
+
+<script id="quizTpl" type="text/x-jsrender">
+	<div class="quizblock row">
+		<div class="info info_{{>category}}">							
+			<p class="subject">
+				<a href="player.htm?date={{>date}}" class="btn btn-xs btn-primary">{{>dateText}}
+					<span class="badge">{{>quizCount}}</span>
+					<span class="badge">{{>categoryText}}</span>
+				</a>
+			</p>
+			<p class="desc">{{>desc}}</p>
+		</div>
+	</div>
+</script>
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>    
+	<script src="./assets/js/jsrender.min.js"></script>
+	<script>
+
+	var quiz_dataList;
+
+	$(document).ready(function() {
+	    var quizTemplate = $.templates("#quizTpl");
+	    function resolveCategory(key){
+	    	if(key=="01"){
+	    		return "言语理解";
+	    	}else if(key=="02"){
+	    		return "数量关系";
+	    	}else if(key=="03"){
+	    		return "判断推理";
+	    	}else if(key=="04"){
+	    		return "资料分析";
+	    	}
+	    	return "常识判断";
+	    }
+
+	    function resolveDate(dt){
+	    	return dt.substr(0,4)+"-"+dt.substr(4,2)+"-"+dt.substr(6,2);
+	    }
+
+	    var fetchQuizList= function(json){
+	    	var data=json.data;
+	    	$(data).each(function(idx){
+				data[idx].categoryText=resolveCategory(data[idx].category);
+				data[idx].dateText=resolveDate(data[idx].date);
+			}); 
+			quiz_dataList=data;
+			var html = quizTemplate.render(data);
+			$("#quizResult").html(html);
+			$("#waiting").addClass("hidden");	
+	    };
+
+		$.ajax({
+	        url: "./list.json",
+	        type: "get",
+	        dataType:"json",
+	        success: fetchQuizList,
+	        error:function(xhr, status){
+	        	$("#waiting").html("加载试题列表出错！");	
+	        }
+	    });
+
+
+		$('#quiz-searchBtn').on('click', function() {
+	     	var txt=$('#quiz-searchTxt').val().trim();
+	     	if(txt.length<2){
+	     		$('#quiz-searchBar').addClass("has-error");
+	     		return;	     		
+	     	}
+	     	$('#quiz-searchBar').removeClass("has-error");
+	     	if(quiz_dataList){
+	     		var data=[];
+	     		$(quiz_dataList).each(function(idx){
+	     			var dt=quiz_dataList[idx];
+	     			if(dt.date && (dt.date.indexOf(txt)>=0)){
+	     				data.push(dt);
+	     			}
+	     		});
+				$("#quizResult").html(quizTemplate.render(data));
+	     	}
+	    });
+	});	
+	</script>
+  </body>
+</html>

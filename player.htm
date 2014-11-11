@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行测天天练</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+
+<nav id="wq-toolbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainmenu">
+        		<span class="sr-only">导航</span>
+        		<span class="glyphicon glyphicon-th-list"></span>
+      		</button>
+      		<a id="quiz-home" class="navbar-brand">
+	          	<span class="glyphicon glyphicon-home"></span>
+          		<span class="hidden-xs">行测天天练</span>
+  				<span id="quiz-pkgDate" class="label label-info"></span>
+      		</a>
+    	</div>
+	    <div class="collapse navbar-collapse" id="mainmenu">  
+	      	<ul class="nav navbar-nav navbar-right">
+	        	<li>
+		          	<a class="btn" href="index.htm">
+		          		<span class="glyphicon glyphicon-share-alt"></span>往期
+		          	</a>
+	        	</li>
+	      	</ul>
+    	</div>
+  	</div>  	
+</nav>
+<section id="wq-body">
+	<div id="wq-cover" class="container">
+
+	     <div class="row">
+	        <div class="col-xs-12 col-sm-5 hidden-xs">	        	
+	        	<p class="text-right">
+					<img alt="二维码" src="assets/qrcode.png" />     
+	        	</p>
+			</div>
+	        <div class="col-xs-12 col-sm-4">
+	        	<div class="wq-summary">
+		        	<div class="title">公务员考试-行测天天练</div>
+		        	<div class="weixin">公众号：
+		        		<button class="btn btn-xs btn-primary">
+		        			时政微讯 
+		        			<span class="badge">sz-tips</span>
+		        		</button>
+		        	</div>
+		        	<blockquote id="quiz-pkgDesc" class="small">
+					  试题加载中，请稍候……
+					</blockquote>
+
+					<div class="btn-group">	
+					  <button id="btnQuiz" type="button" class="btn btn-sm btn-success">
+					  		<span class="glyphicon glyphicon-hand-right"></span> 看题
+					  </button>
+					  <button type="button" class="btn btn-sm btn-default hidden-xs">					  	
+					  		<span class="glyphicon glyphicon-share"></span> 分享
+					  </button>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- cover end -->
+	<div id="wq-quiz" class="container-fluid hidden">
+		<div class="step-info">
+			<span id="currText" class="badge"></span>
+		</div>
+		<div id="quiz-pane" class="tab-content">
+		</div>
+		<div id="progress-bar" class="progress-bar-success" style="height:1px;"></div>
+	   	<div class="text-right">
+			<label><input id="chkSolving" type="checkbox">显示解析</label>
+	   	</div>
+		<div class="quiz-controller">
+			<div class="row">
+				<div class="col-xs-3 col-sm-2 col-md-1">
+					<div class="text-center">
+					  	<button id="prev" type="button" class="btn btn-xs btn-primary">
+						  	<span class="glyphicon glyphicon-arrow-left"></span>前翻
+						</button>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-8 col-md-10">
+					<div class="text-center">
+						<ul id="quiz-tab" class="pagination pagination-sm wizard">
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-3 col-sm-2 col-md-1">				
+					<div class="text-center">
+					  	<button id="next" type="button" class="btn btn-xs btn-primary">
+						  <span class="glyphicon glyphicon-arrow-right"></span>后翻
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+	
+	</div>
+	<div class="push"></div>
+</section>
+
+<div id="wq-copyright" class="container-fluid">
+ 	<p class="text-center"> &copy; 2014 <kbd>时政微讯(sz-tips)</kbd> 版权所有</p>  
+ 	<p class="text-center">联系方式（QQ）：501605517 </p>  
+</div>
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="./assets/js/jsrender.min.js"></script>
+	<script src="./assets/js/jquery.bootstrap.wizard.js"></script>
+	<script src="./assets/js/wequiz.js"></script>
+	<script>
+	$(document).ready(function() {
+		$.wequiz.loadQuiz();	
+		$.wequiz.bindAction();	    
+	    //var flag = WeixinApi.openInWeixin();
+	});	
+	</script>
+  </body>
+</html>

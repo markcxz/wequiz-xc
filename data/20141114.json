@@ -1,0 +1,28 @@
+﻿{"date":"2014-11-14",
+	"desc":"行测2014年11月14日试题，呃，逻辑推理类10道。",
+	"quiz":[{
+		"subject":["1题干描述"],
+		"items":[{"answer":"n","desc":"A、选项一"},
+			{"answer":"n","desc":"B、选项二"},
+			{"answer":"n","desc":"C、选项三"},
+			{"answer":"y","desc":"D、选项二"}
+		],
+		"solving":"解题思路描述"
+	},{
+		"subject":["2题干描述"],
+		"items":[{"answer":"n","desc":"A、选项一"},
+			{"answer":"n","desc":"B、选项二"},
+			{"answer":"y","desc":"C、选项三"},
+			{"answer":"n","desc":"D、选项二"}
+		],
+		"solving":"解题思路描述"
+	},{
+		"subject":["3题干描述"],
+		"items":[{"answer":"n","desc":"A、选项一"},
+			{"answer":"n","desc":"B、选项二"},
+			{"answer":"y","desc":"C、选项三"},
+			{"answer":"n","desc":"D、选项二"}
+		],
+		"solving":"解题思路描述"
+	}]
+}
