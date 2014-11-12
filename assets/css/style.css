@@ -12,7 +12,7 @@ body{
 #wq-body {
 	min-height: 100%;
 	height: auto !important;
-	height: 100%;padding-top: 40px;
+	height: 100%;
 	margin: 0 auto -50px;
 }
 
@@ -47,7 +47,9 @@ body{
 #wq-toolbar .navbar-brand{
 	height: 32px; padding:5px 10px; font-size: 16px; cursor: pointer;
 }
-
+#wq-toolbar-fixed{
+	height: 40px;
+}
 
 #wq-cover img{
 	margin: 0px auto; border: 1px solid #f0f0f0;
@@ -144,9 +146,11 @@ body{
 #wq-index-toolbar .title{
 	color: #fff; font-size: 32px;
 }
-
+#wq-index-toolbar-fixed{
+	height: 40px;
+}
 #wq-index-banner {
-	height: 240px;
+	height: 280px;
 	width: 100%;
 	background: url('main_bg_image.jpg') repeat-x transparent 50% 50%;
 	text-align: center;

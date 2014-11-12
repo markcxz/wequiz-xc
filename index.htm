@@ -25,6 +25,7 @@
 </nav>
 
 <section id="wq-body">
+	<div id="wq-index-toolbar-fixed"></div>
 	<div id="wq-index-banner" class="hidden-xs">
 		<h1>每天，进步，一点点</h1>
 		<h3><i>不积跬步，无以至千里；不积小流，无以成江海。</i></h3>
@@ -87,6 +88,10 @@
 	var quiz_dataList;
 
 	$(document).ready(function() {
+		if( typeof WeixinApi != 'undefined' && WeixinApi.openInWeixin()){			
+			$("#wq-index-toolbar").addClass("hidden");	
+			$("#wq-index-toolbar-fixed").addClass("hidden");	
+		}
 	    var quizTemplate = $.templates("#quizTpl");
 	    function resolveCategory(key){
 	    	if(key=="01"){
