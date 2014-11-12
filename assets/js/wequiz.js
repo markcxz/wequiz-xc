@@ -9,7 +9,7 @@
 	        	$.wequiz.applyQuizData(json);
 	        },
 	        error:function(xhr, status){
-	        	$("#quiz-pkgDesc").html("加载试题数据出错！");	
+	        	$("#quiz-pkgDesc").html("加载试题数据出错啦，请您稍后重试，您也可以通过下方的QQ联系我们！");	
 	        }
 	    });
 	},
@@ -27,6 +27,8 @@
 		var panehtml=$.render.quizTpl(quizPkg.quiz);
 		$("#quiz-tab").html(tabHtml);
 		$("#quiz-pane").html(panehtml);
+	    $('#quizBtns').removeClass("hidden");    
+
 
 
 
