@@ -88,7 +88,11 @@
 	var quiz_dataList;
 
 	$(document).ready(function() {
-		if(typeof WeixinJSBridge == 'undefined'){			
+		function isWeiXin(){
+		    var ua = window.navigator.userAgent.toLowerCase();
+		    return (ua.match(/MicroMessenger/i) == 'micromessenger');
+		}
+		if(!isWeiXin()){			
 			$("#wq-index-toolbar").removeClass("hidden");	
 			$("#wq-index-toolbar-fixed").removeClass("hidden");	
 		}
