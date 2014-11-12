@@ -62,6 +62,51 @@ body{
 	font-size: 18px; padding: 10px 0px; font-weight: bold; margin-top: 10px;
 }
 
+
+
+.sharebar{
+  margin: 0px 10px 6px 0;
+}
+
+.sharebar li a{
+  background-image: url(icons_0_16.png);
+  background-repeat: no-repeat;
+  padding:0px 0px 0px 20px; margin: 8px;  
+  line-height: 20px;
+  height: 20px;
+}
+
+.sharebar .cnRenren {
+  background-position: 0 -206px;
+}
+.sharebar .cnDouban {
+  background-position: 0 -466px;
+}
+
+.sharebar .cnQzone {
+  background-position: 0 -50px;
+}
+
+.sharebar .cnTqq {
+  background-position: 0 -258px;
+}
+
+.sharebar .cnTsina {
+  background-position: 0 -102px;
+}
+.sharebar .cnWeixin {
+  background-position: 0 -1610px;
+}
+.sharebar .cnKanshou {
+  background-position: 0 -2858px;
+}
+.sharebar .cnTsohu {
+  background-position: 0 -518px;
+}
+
+
+
+
 #wq-quiz{
 	padding-top: 10px;
 }
@@ -119,8 +164,8 @@ body{
 	border-left-color: #d9534f;
 }
 .question-inner blockquote {
-	padding: 10px;
-	margin: 10px 0;
+	padding: 10px;margin: 10px 0;
+	text-indent: 2em; line-height: 150%;
 	border: 1px solid #eee;
 	border-left-width: 5px;
 	border-radius: 3px;

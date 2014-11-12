@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>行测天天练</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Bootstrap -->
+    <meta name="description" content="时政微讯(sz-tips)是一个让你涨姿势的公务员自媒体，我们专注于公务员成长知识分享，主要包括时政热点、公考知识、遴选知识、机关工作心得、业务能力培养等。">
     <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
   </head>
@@ -61,11 +61,34 @@
 
 					<div id="quizBtns" class="btn-group hidden">	
 					  <button id="btnQuiz" type="button" class="btn btn-sm btn-success">
-					  		<span class="glyphicon glyphicon-hand-right"></span> 看题
+					  		<span class="glyphicon glyphicon-hand-right"></span> 看试题
 					  </button>
-					  <button type="button" class="btn btn-sm btn-default hidden-xs">					  	
-					  		<span class="glyphicon glyphicon-share"></span> 分享
-					  </button>
+					  <button id="dropdownMenu1" type="button" class="btn btn-sm btn-default hidden-xs" data-toggle="dropdown">
+					  		<span class="glyphicon glyphicon-share"></span> 分享到...
+					  </button>					  	
+						  <ul class="dropdown-menu sharebar" role="menu" aria-labelledby="dropdownMenu1">
+						  	<li role="presentation">
+						  		<a href="#" data-sharing="cnRenren" class="cnRenren">分享到人人网</a>
+						  	</li>
+						  	<li role="presentation">
+						  		<a href="#" data-sharing="cnDouban" class="cnDouban">分享到豆瓣网</a>
+						  	</li>
+						  	<li role="presentation">
+						  		<a href="#" data-sharing="cnQzone" class="cnQzone">分享到QQ空间</a>
+						  	</li>
+						  	<li role="presentation">
+						  		<a href="#" data-sharing="cnTqq" class="cnTqq">分享到腾讯微博</a>
+						  	</li>
+						  	<li role="presentation">
+						  		<a href="#" data-sharing="cnTsina" class="cnTsina">分享到新浪微博</a>
+						  	</li>
+						  	<li role="presentation">
+						  		<a href="#" data-sharing="cnKanshou" class="cnKanshou">分享到搜狐随身看</a>
+						  	</li>
+						  	<li role="presentation">
+				              <a href="#" data-sharing="cnTsohu" class="cnTsohu" >分享到搜狐微博</a>
+				            </li>
+						  </ul>
 					</div>	
 				</div>
 			</div>
@@ -124,7 +147,8 @@
 	<script>
 	$(document).ready(function() {
 		$.wequiz.loadQuiz();	
-		$.wequiz.bindAction();	    
+		$.wequiz.bindAction();	  
+		$('.sharebar').sharing();  
 	    //var flag = WeixinApi.openInWeixin();
 	});	
 	</script>
