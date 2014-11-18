@@ -132,6 +132,7 @@ body{
 
 .question-inner{
     padding:3px 0px 0px 0px; margin:0px;
+    font-size: 16px;
 }
 .question-inner ul{
     padding:0px; margin:0px;
@@ -162,6 +163,7 @@ body{
 }
 .question-inner blockquote.quiz-solving {
 	border-left-color: #d9534f;
+	font-size: 16px;
 }
 .question-inner blockquote {
 	padding: 10px;margin: 10px 0;
