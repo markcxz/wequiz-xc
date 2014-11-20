@@ -16,7 +16,7 @@
 	applyQuizData:function(quizPkg){
 		$.templates({
 		  quizTpl: '<div class="tab-pane" id="tab{{:#index+1}}"><div class="question-inner"><p>{{for subject tmpl="quizSubject" /}}</p><ul>{{for items tmpl="quizItem" /}}</ul><blockquote class="quiz-solving small alert-success hidden">{{:solving}}</blockquote></div></div>',
-		  quizSubject:'<p>{{>#data}}<p/>',
+		  quizSubject:'<p>{{:#data}}<p/>',
 		  quizItem: '<li><input data-quiz="{{:answer}}" name="quiz-{{:#parent.parent.index}}" id="quiz-{{:#parent.parent.index}}-{{:#index}}" type="radio"/><span class="glyphicon"></span><label for="quiz-{{:#parent.parent.index}}-{{:#index}}">{{:desc}}</label></li>',
 		  quizTabTpl: '<li><a href="#tab{{:#index+1}}" data-toggle="tab">{{:#index+1}}</a></li>'
 		});
